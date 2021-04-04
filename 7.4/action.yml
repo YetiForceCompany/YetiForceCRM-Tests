@@ -3,14 +3,7 @@ description: 'GitHub Action for Tests YetiForceCRM  - PHP 7.4'
 branding:
   icon: 'check-square'
   color: 'blue'
-inputs:
-  xxxx:
-    description: 'xxxx xxxx xxxx'
-    required: true
-    default: 'cccc'
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.xxxx }}
