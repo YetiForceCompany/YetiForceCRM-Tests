@@ -1,4 +1,5 @@
 #! /bin/bash
+set -e
 
 echo " -----  Start -----"
 printenv
@@ -58,7 +59,6 @@ echo "CREATE USER 'yetiforce'@'localhost' IDENTIFIED BY '$DB_USER_PASS';" | mysq
 echo "GRANT ALL PRIVILEGES ON yetiforce.* TO 'yetiforce'@'localhost';" | mysql --user=root;
 echo "FLUSH PRIVILEGES;" | mysql --user=root
 
-set -xe
 cd /var/www/html/tests
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps
 
