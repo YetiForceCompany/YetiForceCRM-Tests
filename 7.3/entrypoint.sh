@@ -62,69 +62,6 @@ echo "FLUSH PRIVILEGES;" | mysql --user=root
 cd /var/www/html/tests
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps
 
-
-if [ -f "/var/log/fpm-php.www.log" ]
-then
-	echo " -----  Logs: /var/log/fpm-php.www.log   -----"
-	cp /var/log/fpm-php.www.log /var/www/html/cache/logs/fpm-php.www.log
-	cat /var/log/fpm-php.www.log
-fi
-
-if [ -f "/var/log/php_error.log" ]
-then
-	echo " -----  Logs: /var/log/php_error.log   -----"
-	cp /var/log/php_error.log /var/www/html/cache/logs/php_error.log
-	cat /var/log/php_error.log
-fi
-
-if [ -f "/var/log/mysql/error.log" ]
-then
-	echo " -----  Logs: /var/log/mysql/error.log   -----"
-	cat /var/log/mysql/error.log
-fi
-
-if [ -f "/var/www/html/cache/logs/system.log" ]
-then
-	echo " -----  Logs: /var/www/html/cache/logs/system.log   -----"
-	cat /var/www/html/cache/logs/system.log
-fi
-
-if [ -f "/var/log/php${PHP_VER}-fpm.log" ]
-then
-	echo " -----  Logs: /var/log/fpm-php.www.log   -----"
-	cp /var/log/php$PHP_VER-fpm.log /var/www/html/cache/logs/php-fpm.log
-	cat /var/log/php$PHP_VER-fpm.log
-fi
-
-if [ -f "/var/log/nginx/error.log" ]
-then
-	echo " -----  Logs: /var/log/nginx/error.log   -----"
-	cp /var/log/nginx/error.log /var/www/html/cache/logs/nginx_error.log
-	cat /var/log/nginx/error.log
-fi
-if [ -f "/var/log/nginx/localhost_error.log" ]
-then
-	echo " -----  Logs: /var/log/nginx/localhost_error.log   -----"
-	cp /var/log/nginx/localhost_error.log /var/www/html/cache/logs/nginx_localhost_error.log
-	cat /var/log/nginx/localhost_error.log
-fi
-
-if [ -f "/var/log/nginx/localhost_access.log" ]
-then
-	echo " -----  Logs: /var/log/nginx/localhost_access.log   -----"
-	cp /var/log/nginx/localhost_access.log /var/www/html/cache/logs/nginx_localhost_access.log
-	cat /var/log/nginx/localhost_access.log
-fi
-
-if [ -f "/var/log/mysql/localhost_access.log" ]
-then
-	echo " -----  Logs: /var/log/mysql/error.log   -----"
-	cp /var/log/mysql/error.log /var/www/html/cache/logs/mysql_error.log
-	cat /var/log/mysql/error.log
-fi
-
-cp -R /var/www/html/cache/logs/* /github/workspace/cache/logs
-
 echo " ----- LS  /var/www/html/cache/logs  -----"
 ls -all  /var/www/html/cache/logs
 echo " ----- LS /var/log/  -----"
