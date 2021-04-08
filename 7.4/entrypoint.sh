@@ -1,8 +1,6 @@
 #! /bin/bash
 set -e
-
 echo " -----  Start -----"
-printenv
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
 
@@ -67,7 +65,7 @@ chmod -R +r /var/log/
 cd /var/www/html/tests
 
 if [ "$PHP_VER" != "7.3" ]; then
-    /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps -q
+    /var/www/html/vendor/bin/phpunit --verbose --colors=always --quiet --testsuite Init,Settings,Base,Integrations,Apps
 else
     /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps
 fi
