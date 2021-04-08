@@ -16,7 +16,11 @@ cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/mariadb.conf.d/50-server.cn
 cp /var/www/html/tests/setup/nginx/www.conf /etc/nginx/sites-available/default
 cp /var/www/html/tests/setup/nginx/yetiforce.conf /etc/nginx/yetiforce.conf
 cp /var/www/html/tests/setup/fpm/www.conf /etc/php/$PHP_VER/fpm/pool.d/www.conf
-cp /var/www/html/tests/setup/php/prod.ini /etc/php/$PHP_VER/mods-available/yetiforce.ini
+if [ "$INSTALL_MODE" != "PROD" ]; then
+    cp /var/www/html/tests/setup/php/dev.ini /etc/php/$PHP_VER/mods-available/yetiforce.ini
+else
+    cp /var/www/html/tests/setup/php/prod.ini /etc/php/$PHP_VER/mods-available/yetiforce.ini
+fi
 
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/cli/conf.d/30-yetiforce.ini
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.d/30-yetiforce.ini
@@ -59,6 +63,7 @@ echo "CREATE USER 'yetiforce'@'localhost' IDENTIFIED BY '$DB_USER_PASS';" | mysq
 echo "GRANT ALL PRIVILEGES ON yetiforce.* TO 'yetiforce'@'localhost';" | mysql --user=root;
 echo "FLUSH PRIVILEGES;" | mysql --user=root
 
+chmod -R +r /var/log/
 cd /var/www/html/tests
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps
 
