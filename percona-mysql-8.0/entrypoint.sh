@@ -1,5 +1,5 @@
 #! /bin/bash
-#set -e
+set -e
 echo " -----  Start -----"
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
