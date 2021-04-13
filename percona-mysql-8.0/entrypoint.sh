@@ -1,5 +1,5 @@
 #! /bin/bash
-set -e
+#set -e
 echo " -----  Start -----"
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
@@ -11,7 +11,7 @@ cp -R $GITHUB_WORKSPACE/* /var/www/html
 
 cp /var/www/html/tests/setup/crons.conf /etc/cron.d/yetiforcecrm
 #cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/mysql.conf.d/50-server.cnf
-cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/conf.d/50-server.cnf
+#cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/conf.d/50-server.cnf
 cp /var/www/html/tests/setup/nginx/www.conf /etc/nginx/sites-available/default
 cp /var/www/html/tests/setup/nginx/yetiforce.conf /etc/nginx/yetiforce.conf
 cp /var/www/html/tests/setup/fpm/www.conf /etc/php/$PHP_VER/fpm/pool.d/www.conf
@@ -38,6 +38,10 @@ php /var/www/html/tests/setup/docker_post_install.php
 echo " -----  service mysql start  -----"
 service mysql start;
 service mysql status
+
+ls -all /var/log/mysql/
+cat /var/log/mysql.err
+
 echo " -----  service cron start  -----"
 service cron start
 echo " -----  nginx  -----"
