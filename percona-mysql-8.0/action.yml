@@ -1,0 +1,9 @@
+name: 'YetiForceCRM Tests Action - Percona MySQL 8.0'
+description: 'GitHub Action for Tests YetiForceCRM  - Percona MySQL 8.0'
+branding:
+  icon: 'check-square'
+  color: 'blue'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

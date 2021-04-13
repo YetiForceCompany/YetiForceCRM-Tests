@@ -52,7 +52,7 @@ chown -R www-data:www-data /var/www/
 echo " -----  mysql  -----"
 mysql -uroot mysql;
 mysqladmin password "$DB_ROOT_PASS";
-echo "UPDATE mysql.user SET Password=PASSWORD('$DB_ROOT_PASS') WHERE User='root';" | mysql --user=root;
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_ROOT_PASS';" | mysql --user=root;
 echo "DELETE FROM mysql.user WHERE User='';" | mysql --user=root;
 echo "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');" | mysql --user=root;
 echo "DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%';" | mysql --user=root;
