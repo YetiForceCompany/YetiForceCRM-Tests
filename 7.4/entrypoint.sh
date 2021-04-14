@@ -72,11 +72,11 @@ echo "FLUSH PRIVILEGES;" | mysql --user=root
 chmod -R +r /var/log/
 cd /var/www/html/tests
 
-/var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps --log-junit 'tests/execution.xml' --coverage-clover 'tests/coverage.xml'
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
-	cp /var/www/html/tests/coverage.xml $GITHUB_WORKSPACE/tests/coverage.xml
+	cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/
 	bash <(curl -s https://codecov.io/bash)
 fi
 
