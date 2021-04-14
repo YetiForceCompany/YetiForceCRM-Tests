@@ -2,6 +2,12 @@
 set -e
 echo " -----  Start -----"
 
+if [ "$COVERAGE" == "true" ]; then
+	echo " -----  install xdebug and ocular.phar -----"
+	apt-get install -y --no-install-recommends "php${PHP_VER}"-xdebug
+	wget -O /var/www/html/cache/ocular.phar https://scrutinizer-ci.com/ocular.phar;
+fi
+
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
 
 cd /var/www/html/
@@ -64,7 +70,12 @@ echo "FLUSH PRIVILEGES;" | mysql --user=root
 chmod -R +r /var/log/
 cd /var/www/html/tests
 
-/var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps
+/var/www/html/vendor/bin/phpunit --verbose --log-junit 'tests/execution.xml' --coverage-clover 'tests/coverage.xml'
+
+if [ "$COVERAGE" == "true" ]; then
+	echo " -----  Start -----"
+	php  /var/www/html/cache/ocular.phar code-coverage:upload --format=php-clover tests/coverage.xml
+fi
 
 #echo " ----- LS  /var/www/html/cache/logs  -----"
 #ls -all  /var/www/html/cache/logs
