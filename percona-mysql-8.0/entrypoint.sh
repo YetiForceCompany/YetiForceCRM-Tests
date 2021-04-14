@@ -38,10 +38,6 @@ php /var/www/html/tests/setup/docker_post_install.php
 echo " -----  service mysql start  -----"
 service mysql start;
 service mysql status
-
-ls -all /var/log/mysql/
-cat /var/log/mysql.err
-
 echo " -----  service cron start  -----"
 service cron start
 echo " -----  nginx  -----"
