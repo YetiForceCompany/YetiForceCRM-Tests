@@ -6,7 +6,7 @@ if [ "$COVERAGE" == "true" ]; then
 	echo " -----  install xdebug -----"
 	apt-get install -y --no-install-recommends "php${PHP_VER}"-xdebug
 	echo " -----  install ocular.phar -----"
-	wget -O /var/www/html/cache/ocular.phar https://scrutinizer-ci.com/ocular.phar
+	wget https://scrutinizer-ci.com/ocular.phar -O /var/www/html/cache/ocular.phar
 fi
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
