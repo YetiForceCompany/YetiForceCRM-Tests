@@ -4,7 +4,7 @@ echo " -----  Start -----"
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  install xdebug -----"
-	apt-get install -y --no-install-recommends "php${PHP_VER}"-xdebug
+	apt-get install -y --no-install-recommends "php${PHP_VER}"-xdebug "php${PHP_VER}"-pcov 
 	ln -s /etc/php/xdebug.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce.ini
 	ln -s /etc/php/xdebug.ini /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce.ini
 fi
