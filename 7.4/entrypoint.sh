@@ -69,7 +69,7 @@ echo "FLUSH PRIVILEGES;" | mysql --user=root
 chmod -R +r /var/log/
 cd /var/www/html/tests
 
-/var/www/html/vendor/bin/phpunit --verbose --log-junit 'tests/execution.xml' --coverage-clover 'tests/coverage.xml'
+/var/www/html/vendor/bin/phpunit --verbose --testsuite Init,Settings,Base,Integrations,Apps --log-junit 'tests/execution.xml' --coverage-clover 'tests/coverage.xml'
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  Start -----"
