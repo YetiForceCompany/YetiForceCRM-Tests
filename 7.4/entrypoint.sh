@@ -30,6 +30,8 @@ fi
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/cli/conf.d/30-yetiforce.ini
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.d/30-yetiforce.ini
 
+ls -all /etc/php/$PHP_VER/cli/conf.d/
+
 crontab /etc/cron.d/yetiforcecrm
 
 echo " -----  chmod  -----"
