@@ -1,5 +1,5 @@
 #! /bin/bash
-set -e
+#set -e
 echo " -----  Start -----"
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
@@ -79,3 +79,7 @@ echo " ----- LS /var/log/nginx  -----"
 ls -all /var/log/nginx
 echo " ----- LS /var/log/mysql  -----"
 ls -all /var/log/mysql
+echo " ----- /var/log/php_error.log  -----"
+cat /var/log/php_error.log
+echo " ----- /var/log/mysql/error.log  -----"
+cat /var/log/mysql/error.log
