@@ -76,6 +76,8 @@ cd /var/www/html/tests
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  Start -----"
 	php  /var/www/html/cache/ocular.phar code-coverage:upload --format=php-clover tests/coverage.xml
+	bash <(curl -s https://codecov.io/bash)
+	bash <(curl -s https://copilot.blackducksoftware.com/ci/travis/scripts/upload)
 fi
 
 #echo " ----- LS  /var/www/html/cache/logs  -----"
