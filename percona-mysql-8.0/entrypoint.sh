@@ -71,15 +71,11 @@ cd /var/www/html/tests
 
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps
 
-echo " ----- LS  /var/www/html/cache/logs  -----"
-ls -all  /var/www/html/cache/logs
-echo " ----- LS /var/log/  -----"
-ls -all /var/log/
-echo " ----- LS /var/log/nginx  -----"
-ls -all /var/log/nginx
-echo " ----- LS /var/log/mysql  -----"
-ls -all /var/log/mysql
-echo " ----- /var/log/php_error.log  -----"
-cat /var/log/php_error.log
-echo " ----- /var/log/mysql/error.log  -----"
-cat /var/log/mysql/error.log
+#echo " ----- LS  /var/www/html/cache/logs  -----"
+#ls -all  /var/www/html/cache/logs
+#echo " ----- LS /var/log/  -----"
+#ls -all /var/log/
+#echo " ----- LS /var/log/nginx  -----"
+#ls -all /var/log/nginx
+#echo " ----- LS /var/log/mysql  -----"
+#ls -all /var/log/mysql
