@@ -7,20 +7,6 @@ if [ "$COVERAGE" == "true" ]; then
 	apt-get install -y --no-install-recommends "php${PHP_VER}"-xdebug
 	ln -s /etc/php/xdebug.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce.ini
 	ln -s /etc/php/xdebug.ini /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce.ini
-	echo " -----  cat /etc/php/xdebug.ini -----"
-	cat /etc/php/xdebug.ini
-	echo " -----  cat /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce.ini -----"
-	cat /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce.ini
-	
-	echo " -----  /etc/php/$PHP_VER/cli/php.ini -----"
-	cat /etc/php/$PHP_VER/cli/php.ini
-	
-	echo " -----  cat /etc/php/xdebug.ini  >> /etc/php/7.4/cli/php.ini -----"
-	cat /etc/php/xdebug.ini  >> /etc/php/$PHP_VER/cli/php.ini
-	
-	echo " -----  /etc/php/$PHP_VER/cli/php.ini -----"
-	cat /etc/php/$PHP_VER/cli/php.ini
-	
 fi
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
@@ -43,7 +29,6 @@ fi
 
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/cli/conf.d/30-yetiforce.ini
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.d/30-yetiforce.ini
-
 
 crontab /etc/cron.d/yetiforcecrm
 
@@ -87,7 +72,7 @@ echo "FLUSH PRIVILEGES;" | mysql --user=root
 chmod -R +r /var/log/
 cd /var/www/html/tests
 
-/var/www/html/vendor/bin/phpunit --verbose --testsuite Init,Settings,Base,Integrations,Apps --log-junit 'tests/execution.xml' --coverage-clover 'tests/coverage.xml'
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps --log-junit 'tests/execution.xml' --coverage-clover 'tests/coverage.xml'
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
