@@ -40,6 +40,7 @@ echo " -----  tests/setup/dependency.sh  -----"
 
 echo " -----  tests/setup/docker_post_install.php  -----"
 php /var/www/html/tests/setup/docker_post_install.php
+rm /var/www/html/tests/setup/docker_post_install.php
 
 echo " -----  service mysql start  -----"
 service mysql start;
@@ -74,7 +75,8 @@ cd /var/www/html/tests
 /var/www/html/vendor/bin/phpunit --verbose --testsuite Init,Settings,Base,Integrations,Apps --log-junit 'tests/execution.xml' --coverage-clover 'tests/coverage.xml'
 
 if [ "$COVERAGE" == "true" ]; then
-	echo " -----  Start -----"
+	echo " -----  after test -----"
+	cp /var/www/html/tests/coverage.xml $GITHUB_WORKSPACE/tests/coverage.xml
 	bash <(curl -s https://codecov.io/bash)
 fi
 
