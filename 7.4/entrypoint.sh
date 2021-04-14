@@ -3,9 +3,10 @@ set -e
 echo " -----  Start -----"
 
 if [ "$COVERAGE" == "true" ]; then
-	echo " -----  install xdebug and ocular.phar -----"
+	echo " -----  install xdebug -----"
 	apt-get install -y --no-install-recommends "php${PHP_VER}"-xdebug
-	wget -O /var/www/html/cache/ocular.phar https://scrutinizer-ci.com/ocular.phar;
+	echo " -----  install ocular.phar -----"
+	wget -O /var/www/html/cache/ocular.phar https://scrutinizer-ci.com/ocular.phar
 fi
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
