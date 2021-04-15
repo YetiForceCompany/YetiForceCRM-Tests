@@ -74,9 +74,7 @@ cd /var/www/html/tests
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  before test -----"
-	printf "include_once 'tests/codecoverage.php';\n" >> /var/www/html/include/ConfigUtils.php
-	
-	cat /var/www/html/include/ConfigUtils.php
+	printf "include_once 'tests/codecoverage.php';\n\n" >> /var/www/html/include/ConfigUtils.php
 fi
 
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps
