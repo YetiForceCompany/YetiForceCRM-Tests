@@ -81,9 +81,17 @@ fi
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
+	
+	echo " ----- CAT /var/www/html/tests/codecoverage.log  -----"
+	cat /var/www/html/tests/codecoverage.log
+	
+	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
 	cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/
+	echo " ----- bash <(curl -s https://codecov.io/bash)  -----"
 	bash <(curl -s https://codecov.io/bash)
 fi
+
+
 
 #echo " ----- LS  /var/www/html/cache/logs  -----"
 #ls -all  /var/www/html/cache/logs
