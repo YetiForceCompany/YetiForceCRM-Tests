@@ -43,7 +43,7 @@ RUN mv composer.phar /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer
 
 COPY entrypoint.sh /entrypoint.sh
-COPY xdebug.ini /etc/php/xdebug.ini
+COPY cover.ini /etc/php/cover.ini
 RUN chmod 777 /entrypoint.sh
 
 WORKDIR /var/www/html

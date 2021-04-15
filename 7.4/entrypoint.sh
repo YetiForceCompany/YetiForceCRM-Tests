@@ -3,10 +3,10 @@
 echo " -----  Start -----"
 
 if [ "$COVERAGE" == "true" ]; then
-	echo " -----  install xdebug -----"
-	apt-get install -y --no-install-recommends "php${PHP_VER}"-xdebug "php${PHP_VER}"-pcov 
-	ln -s /etc/php/xdebug.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce.ini
-	ln -s /etc/php/xdebug.ini /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce.ini
+	echo " -----  install pcov -----"
+	apt-get install -y --no-install-recommends "php${PHP_VER}"-pcov 
+	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce-cover.ini
+	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce-cover.ini
 fi
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
@@ -77,6 +77,7 @@ if [ "$COVERAGE" == "true" ]; then
 	printf "include_once 'tests/codecoverage.php';\n\n" >> /var/www/html/include/ConfigUtils.php
 fi
 
+echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit 'tests/execution.xml' --testsuite Init,Settings,Base,Integrations,Apps  -----"
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit 'tests/execution.xml' --testsuite Init,Settings,Base,Integrations,Apps
 
 if [ "$COVERAGE" == "true" ]; then
