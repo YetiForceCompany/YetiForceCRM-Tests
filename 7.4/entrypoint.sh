@@ -77,7 +77,7 @@ if [ "$COVERAGE" == "true" ]; then
 	printf "include_once 'tests/codecoverage.php';\n\n" >> /var/www/html/include/ConfigUtils.php
 fi
 
-/var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit 'tests/execution.xml' --testsuite Init,Settings,Base,Integrations,Apps
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
