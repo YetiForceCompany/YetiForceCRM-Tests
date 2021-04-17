@@ -72,11 +72,6 @@ echo "FLUSH PRIVILEGES;" | mysql --user=root
 chmod -R +r /var/log/
 cd /var/www/html/tests
 
-if [ "$COVERAGE" == "true" ]; then
-	echo " -----  before test -----"
-	printf "include_once 'tests/codecoverage.php';\n\n" >> /var/www/html/include/ConfigUtils.php
-fi
-
 echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Test1  -----"
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Test1
 
