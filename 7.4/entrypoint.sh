@@ -82,9 +82,7 @@ echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsu
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
-	
-	echo " ----- CAT /var/www/html/tests/codecoverage.log  -----"
-	cat /var/www/html/tests/codecoverage.log
+	php /var/www/html/tests/codeCoverageReport.php
 	
 	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
 	cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/
