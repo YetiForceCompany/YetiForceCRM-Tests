@@ -73,7 +73,7 @@ chmod -R +r /var/log/
 cd /var/www/html/tests
 
 echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Test1  -----"
-/var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Test1
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
