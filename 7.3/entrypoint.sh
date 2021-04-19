@@ -64,7 +64,7 @@ echo "FLUSH PRIVILEGES;" | mysql --user=root
 chmod -R +r /var/log/
 cd /var/www/html/tests
 
-/var/www/html/vendor/bin/phpunit --verbose --colors=always --debug --testsuite Init,Settings,Base,Integrations,Apps
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --debug --testsuite NoGUI
 
 #echo " ----- LS  /var/www/html/cache/logs  -----"
 #ls -all  /var/www/html/cache/logs
