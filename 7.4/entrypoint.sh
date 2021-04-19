@@ -72,6 +72,8 @@ echo "FLUSH PRIVILEGES;" | mysql --user=root
 chmod -R +r /var/log/
 cd /var/www/html/tests
 
+ls -all
+
 echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps    -----"
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite Init,Settings,Base,Integrations,Apps
 
