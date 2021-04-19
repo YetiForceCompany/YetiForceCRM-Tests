@@ -78,7 +78,6 @@ echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsu
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
-	rm /etc/php/$PHP_VER/cli/conf.d/40-yetiforce-cover.ini
 	php /var/www/html/tests/setup/codeCoverageReport.php
 	
 	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
