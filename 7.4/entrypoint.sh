@@ -2,7 +2,12 @@
 #set -e
 echo " -----  Start -----"
 
-
+if [ "$COVERAGE" == "true" ]; then
+	echo " -----  install pcov -----"
+	apt-get install -y --no-install-recommends "php${PHP_VER}"-pcov 
+	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce-cover.ini
+	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce-cover.ini
+fi
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
 
@@ -75,7 +80,8 @@ echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsu
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
-	php /var/www/html/tests/codeCoverageReport.php
+	rm /etc/php/$PHP_VER/cli/conf.d/40-yetiforce-cover.ini
+	php /var/www/html/tests/setup/codeCoverageReport.php
 	
 	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
 	cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/
