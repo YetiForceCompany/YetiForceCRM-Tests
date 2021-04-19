@@ -79,20 +79,15 @@ echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsu
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
 	php /var/www/html/tests/setup/codeCoverageReport.php
-	echo " ----- /var/www/html/tests/  -----"
-	ls -all /var/www/html/tests/
+	
 	echo " ----- /var/www/html/tests/coverages/  -----"
 	ls -all /var/www/html/tests/coverages/
-	echo " ----- $GITHUB_WORKSPACE/tests/  -----"
-	ls -all $GITHUB_WORKSPACE/tests/
-	echo " ----- $GITHUB_WORKSPACE/tests/coverages/   -----"
-	ls -all $GITHUB_WORKSPACE/tests/coverages/ 
-	
-	echo " ----- mkdir $GITHUB_WORKSPACE/tests/coverages/   -----"
 	mkdir $GITHUB_WORKSPACE/tests/coverages/
 	
 	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
 	cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/
+	
+	cd /var/www/html/tests/coverages/
 	echo " ----- bash <(curl -s https://codecov.io/bash)  -----"
 	bash <(curl -s https://codecov.io/bash)
 fi
