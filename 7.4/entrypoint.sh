@@ -89,6 +89,8 @@ if [ "$COVERAGE" == "true" ]; then
 	
 	echo " ----- bash <(curl -s https://codecov.io/bash)  -----"
 	bash <(curl -s https://codecov.io/bash)
+	echo " ----- bash <(curl -s https://codecov.io/bash)  -----"
+	bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage.xml
 fi
 
 
