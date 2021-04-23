@@ -85,9 +85,7 @@ if [ "$COVERAGE" == "true" ]; then
 	mkdir $GITHUB_WORKSPACE/tests/coverages/
 	
 	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
-	cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/
-	cp -R /var/www/html/config/* $GITHUB_WORKSPACE/config/
-	cp -R /var/www/html/modules/* $GITHUB_WORKSPACE/modules/
+	cp -R /var/www/html/* $GITHUB_WORKSPACE
 	chmod 777 $GITHUB_WORKSPACE/tests/coverages/coverage.xml
 	
 	echo " ----- bash <(curl -s https://codecov.io/bash)  -----"
