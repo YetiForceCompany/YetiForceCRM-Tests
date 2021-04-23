@@ -86,8 +86,7 @@ if [ "$COVERAGE" == "true" ]; then
 	
 	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
 	cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/
-	cp -R /var/www/html/tests/coverages/coverage.xml $GITHUB_WORKSPACE/tests/coverages/coverage2.xml
-	chmod 777 $GITHUB_WORKSPACE/tests/coverages/coverage2.xml
+	chmod 777 $GITHUB_WORKSPACE/tests/coverages/coverage.xml
 	
 	echo " ----- bash <(curl -s https://codecov.io/bash)  -----"
 	bash <(curl -s https://codecov.io/bash)
