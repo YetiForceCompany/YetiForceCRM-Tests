@@ -89,7 +89,7 @@ if [ "$COVERAGE" == "true" ]; then
 	chmod 777 $GITHUB_WORKSPACE/tests/coverages/coverage.xml
 	cd ..
 	echo " ----- bash <(curl -s https://codecov.io/bash)  -----"
-	bash <(curl -s https://codecov.io/bash)
+	bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage.xml
 	echo " ----- bash <(curl -s https://codecov.io/bash)  -----"
 	bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage.xml
 fi
