@@ -16,6 +16,7 @@ cd /var/www/html/
 echo " -----  Copy files  -----"
 cp -R $GITHUB_WORKSPACE/* /var/www/html
 cp -R $GITHUB_WORKSPACE/.codecov.yml /var/www/html/.codecov.yml
+cp -R $GITHUB_WORKSPACE/.codecov.yml /var/www/html/codecov.yml
 cp -R $GITHUB_WORKSPACE/.scrutinizer.yml /var/www/html/.scrutinizer.yml
 
 cp /var/www/html/tests/setup/crons.conf /etc/cron.d/yetiforcecrm
@@ -91,6 +92,7 @@ if [ "$COVERAGE" == "true" ]; then
 	
 	ls -all /var/www/html/
 	
+	cp -R /var/www/html/* $GITHUB_WORKSPACE
 	echo " ----- bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage2.xml  -----"
 	bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage.xml -R /var/www/html/
 	
