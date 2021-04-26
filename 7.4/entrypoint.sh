@@ -79,18 +79,18 @@ echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsu
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
 	php /var/www/html/tests/setup/codeCoverageReport.php
-	
+
 	echo " ----- /var/www/html/tests/coverages/  -----"
 	ls -all /var/www/html/tests/coverages/
 	mkdir $GITHUB_WORKSPACE/tests/coverages/
 	
 	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
 	cp -R /var/www/html/* $GITHUB_WORKSPACE
-	chmod 777 $GITHUB_WORKSPACE/tests/coverages/coverage.xml
-	cd ..
-	echo " ----- bash <(curl -s https://codecov.io/bash)  -----"
+	
+	echo " ----- bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage.xml  -----"
 	bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage.xml
-	echo " ----- bash <(curl -s https://codecov.io/bash)  -----"
+	
+	echo " ----- bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage.xml  -----"
 	bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage.xml
 fi
 
