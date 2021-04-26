@@ -15,8 +15,6 @@ cd /var/www/html/
 
 echo " -----  Copy files  -----"
 cp -R $GITHUB_WORKSPACE/* /var/www/html
-cp -R $GITHUB_WORKSPACE/.codecov.yml /var/www/html/.codecov.yml
-cp -R $GITHUB_WORKSPACE/.codecov.yml /var/www/html/codecov.yml
 cp -R $GITHUB_WORKSPACE/.scrutinizer.yml /var/www/html/.scrutinizer.yml
 
 cp /var/www/html/tests/setup/crons.conf /etc/cron.d/yetiforcecrm
