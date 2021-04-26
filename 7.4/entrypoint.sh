@@ -91,8 +91,7 @@ if [ "$COVERAGE" == "true" ]; then
 	cp -R /var/www/html/* $GITHUB_WORKSPACE
 	
 	ls -all /var/www/html/
-	
-	cp -R /var/www/html/* $GITHUB_WORKSPACE
+
 	echo " ----- bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage2.xml  -----"
 	bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage2.xml -k /var/www/html/
 	
