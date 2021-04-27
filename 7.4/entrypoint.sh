@@ -90,8 +90,8 @@ if [ "$COVERAGE" == "true" ]; then
 	
 	ls -all /var/www/html/
 
-	echo " ----- bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage.xml -R /var/www/html/  -----"
-	bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage.xml -R /var/www/html/
+	echo " ----- bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage2.xml -R /var/www/html/  -----"
+	bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage2.xml -R /var/www/html/
 	
 	echo " ----- bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage3.xml  -----"
 	bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage3.xml
