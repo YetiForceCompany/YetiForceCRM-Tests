@@ -1,0 +1,9 @@
+name: 'YetiForceCRM Tests Action - Codec coverage'
+description: 'GitHub Action for Tests YetiForceCRM  - Codec coverage'
+branding:
+  icon: 'check-square'
+  color: 'blue'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

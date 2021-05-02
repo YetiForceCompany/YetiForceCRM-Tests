@@ -66,12 +66,3 @@ chmod -R +r /var/log/
 cd /var/www/html/tests
 
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite NoGUI
-
-#echo " ----- LS  /var/www/html/cache/logs  -----"
-#ls -all  /var/www/html/cache/logs
-#echo " ----- LS /var/log/  -----"
-#ls -all /var/log/
-#echo " ----- LS /var/log/nginx  -----"
-#ls -all /var/log/nginx
-#echo " ----- LS /var/log/mysql  -----"
-#ls -all /var/log/mysql

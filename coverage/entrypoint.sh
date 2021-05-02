@@ -1,6 +1,13 @@
 #! /bin/bash
-set -e
+#set -e
 echo " -----  Start -----"
+
+if [ "$COVERAGE" == "true" ]; then
+	echo " -----  install pcov -----"
+	apt-get install -y --no-install-recommends "php${PHP_VER}"-pcov 
+	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce-cover.ini
+	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce-cover.ini
+fi
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
 
@@ -8,6 +15,7 @@ cd /var/www/html/
 
 echo " -----  Copy files  -----"
 cp -R $GITHUB_WORKSPACE/* /var/www/html
+cp -R $GITHUB_WORKSPACE/.scrutinizer.yml /var/www/html/.scrutinizer.yml
 
 cp /var/www/html/tests/setup/crons.conf /etc/cron.d/yetiforcecrm
 cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -33,6 +41,7 @@ echo " -----  tests/setup/dependency.sh  -----"
 
 echo " -----  tests/setup/docker_post_install.php  -----"
 php /var/www/html/tests/setup/docker_post_install.php
+rm /var/www/html/tests/setup/docker_post_install.php
 
 echo " -----  service mysql start  -----"
 service mysql start;
@@ -64,4 +73,35 @@ echo "FLUSH PRIVILEGES;" | mysql --user=root
 chmod -R +r /var/log/
 cd /var/www/html/tests
 
-/var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite NoGUI
+echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite NoGUI    -----"
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite NoGUI
+
+
+if [ "$COVERAGE" == "true" ]; then
+	echo " -----  after test -----"
+	php /var/www/html/tests/setup/codeCoverageReport.php
+
+	echo " ----- /var/www/html/tests/coverages/  -----"
+	ls -all /var/www/html/tests/coverages/
+	mkdir $GITHUB_WORKSPACE/tests/coverages/
+	
+	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
+	cp -R /var/www/html/* $GITHUB_WORKSPACE
+	
+	ls -all /var/www/html/
+
+	echo " ----- bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage2.xml -R /var/www/html/  -----"
+	bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage2.xml -R /var/www/html/
+	
+	echo " ----- bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage4.xml  -----"
+	bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage4.xml
+fi
+
+#echo " ----- LS  /var/www/html/cache/logs  -----"
+#ls -all  /var/www/html/cache/logs
+#echo " ----- LS /var/log/  -----"
+#ls -all /var/log/
+#echo " ----- LS /var/log/nginx  -----"
+#ls -all /var/log/nginx
+#echo " ----- LS /var/log/mysql  -----"
+#ls -all /var/log/mysql
