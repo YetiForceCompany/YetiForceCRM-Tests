@@ -4,7 +4,7 @@ echo " -----  Start -----"
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  install pcov -----"
-	apt-get install -y --no-install-recommends "php${PHP_VER}"-pcov 
+	apt-get install -y --no-install-recommends "php${PHP_VER}"-pcov
 	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce-cover.ini
 	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce-cover.ini
 fi
@@ -84,15 +84,16 @@ if [ "$COVERAGE" == "true" ]; then
 	echo " ----- /var/www/html/tests/coverages/  -----"
 	ls -all /var/www/html/tests/coverages/
 	mkdir $GITHUB_WORKSPACE/tests/coverages/
-	
+
 	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
 	cp -R /var/www/html/* $GITHUB_WORKSPACE
-	
+
 	ls -all /var/www/html/
 
-	echo " ----- bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage2.xml -R /var/www/html/  -----"
-	bash <(curl -s https://codecov.io/bash) -f /var/www/html/tests/coverages/coverage2.xml -R /var/www/html/
-	
+	echo " ----- bash <(curl -s https://codecov.io/bash) -f tests/coverages/coverage.xml  -----"
+	cd /var/www/html
+	bash <(curl -s https://codecov.io/bash) -f tests/coverages/coverage.xml
+
 	echo " ----- bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage4.xml  -----"
 	bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage4.xml
 fi
