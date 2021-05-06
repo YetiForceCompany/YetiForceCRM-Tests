@@ -4,7 +4,7 @@ echo " -----  Start -----"
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  install pcov -----"
-	apt-get install -y --no-install-recommends "php${PHP_VER}"-pcov
+	apt-get install -qq -y --no-install-recommends "php${PHP_VER}"-pcov 
 	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce-cover.ini
 	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce-cover.ini
 fi
@@ -43,6 +43,10 @@ echo " -----  tests/setup/docker_post_install.php  -----"
 php /var/www/html/tests/setup/docker_post_install.php
 rm /var/www/html/tests/setup/docker_post_install.php
 
+echo " -----  /var/www/html/tests/setup/selenium.sh -----"
+chmod 777 /var/www/html/tests/setup/selenium.sh
+/var/www/html/tests/setup/selenium.sh
+
 echo " -----  service mysql start  -----"
 service mysql start;
 service mysql status
@@ -74,7 +78,7 @@ chmod -R +r /var/log/
 cd /var/www/html/tests
 
 echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite NoGUI    -----"
-/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite NoGUI
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite All
 
 
 if [ "$COVERAGE" == "true" ]; then
@@ -84,10 +88,10 @@ if [ "$COVERAGE" == "true" ]; then
 	echo " ----- /var/www/html/tests/coverages/  -----"
 	ls -all /var/www/html/tests/coverages/
 	mkdir $GITHUB_WORKSPACE/tests/coverages/
-
+	
 	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
 	cp -R /var/www/html/* $GITHUB_WORKSPACE
-
+	
 	ls -all /var/www/html/
 
 	echo " ----- bash <(curl -s https://codecov.io/bash) -f tests/coverages/coverage.xml  -----"
@@ -98,11 +102,13 @@ if [ "$COVERAGE" == "true" ]; then
 	bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage4.xml
 fi
 
-#echo " ----- LS  /var/www/html/cache/logs  -----"
-#ls -all  /var/www/html/cache/logs
-#echo " ----- LS /var/log/  -----"
-#ls -all /var/log/
-#echo " ----- LS /var/log/nginx  -----"
-#ls -all /var/log/nginx
-#echo " ----- LS /var/log/mysql  -----"
-#ls -all /var/log/mysql
+
+
+echo " ----- LS  /var/www/html/cache/logs  -----"
+ls -all  /var/www/html/cache/logs
+echo " ----- LS /var/log/  -----"
+ls -all /var/log/
+echo " ----- LS /var/log/nginx  -----"
+ls -all /var/log/nginx
+echo " ----- LS /var/log/mysql  -----"
+ls -all /var/log/mysql
