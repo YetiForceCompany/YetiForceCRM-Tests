@@ -9,7 +9,6 @@ cd /var/www/html/
 echo " -----  Copy files  -----"
 cp -R $GITHUB_WORKSPACE/* /var/www/html
 
-cp /var/www/html/tests/setup/crons.conf /etc/cron.d/yetiforcecrm
 cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/conf.d/50-server.cnf
 cp /var/www/html/tests/setup/nginx/www.conf /etc/nginx/sites-available/default
 cp /var/www/html/tests/setup/nginx/yetiforce.conf /etc/nginx/yetiforce.conf
@@ -22,8 +21,6 @@ fi
 
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/cli/conf.d/30-yetiforce.ini
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.d/30-yetiforce.ini
-
-crontab /etc/cron.d/yetiforcecrm
 
 echo " -----  chmod  -----"
 chmod -R +x /var/www/html/tests/setup
