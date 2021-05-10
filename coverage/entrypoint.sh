@@ -1,5 +1,5 @@
 #! /bin/bash
-#set -e
+set -e
 echo " -----  cat /proc/meminfo -----"
 cat /proc/meminfo
 echo " -----  free -m  -----"
