@@ -22,14 +22,21 @@ cd /var/www/
 
 echo " -----  Copy files  -----" 
 
+echo " -----  ls -all $GITHUB_WORKSPACE  -----" 
+ls -all $GITHUB_WORKSPACE
+
+echo " -----  ls -all /var/www/  -----" 
 ls -all /var/www/
+echo " -----  ls -all /var/www/html  -----" 
 ls -all /var/www/html
 
 rm -d html
 ln -s $GITHUB_WORKSPACE html
 #cp -R $GITHUB_WORKSPACE/* /var/www/html
 
+echo " -----  ls -all /var/www/  -----" 
 ls -all /var/www/
+echo " -----  ls -all /var/www/html  -----" 
 ls -all /var/www/html
 
 cd /var/www/html/
