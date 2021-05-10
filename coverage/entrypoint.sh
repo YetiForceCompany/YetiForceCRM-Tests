@@ -11,7 +11,7 @@ echo " -----  Start -----"
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  install pcov -----"
-	apt-get install -y --no-install-recommends "php${PHP_VER}"-pcov >> /var/www/html/cache/logs/apt-get-install.log 
+	apt-get install -y --no-install-recommends "php${PHP_VER}"-pcov 
 	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce-cover.ini
 	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce-cover.ini
 fi
