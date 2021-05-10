@@ -18,28 +18,11 @@ fi
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
 
-cd /var/www/
+cd /var/www/html/
 
 echo " -----  Copy files  -----" 
-
-echo " -----  ls -all $GITHUB_WORKSPACE  -----" 
-ls -all $GITHUB_WORKSPACE
-
-echo " -----  ls -all /var/www/  -----" 
-ls -all /var/www/
-echo " -----  ls -all /var/www/html  -----" 
-ls -all /var/www/html
-
-rm -d html
-ln -s $GITHUB_WORKSPACE html
-#cp -R $GITHUB_WORKSPACE/* /var/www/html
-
-echo " -----  ls -all /var/www/  -----" 
-ls -all /var/www/
-echo " -----  ls -all /var/www/html  -----" 
-ls -all /var/www/html
-
-cd /var/www/html/
+cp -R $GITHUB_WORKSPACE/* /var/www/html
+cp -R $GITHUB_WORKSPACE/.scrutinizer.yml /var/www/html/.scrutinizer.yml
 
 cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 cp /var/www/html/tests/setup/nginx/www.conf /etc/nginx/sites-available/default
