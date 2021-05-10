@@ -21,9 +21,15 @@ fi
 cd /var/www/html/
 
 echo " -----  Copy files  -----" 
+
+ls -all /var/www/
+ls -all /var/www/html
+
 ln -s $GITHUB_WORKSPACE /var/www/html
 #cp -R $GITHUB_WORKSPACE/* /var/www/html
 
+ls -all /var/www/
+ls -all /var/www/html
 
 cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 cp /var/www/html/tests/setup/nginx/www.conf /etc/nginx/sites-available/default
