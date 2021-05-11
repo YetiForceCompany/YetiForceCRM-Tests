@@ -1,12 +1,7 @@
 #! /bin/bash
 #set -e
-echo " -----  cat /proc/meminfo -----"
-cat /proc/meminfo
 echo " -----  free -m  -----"
 free -m 
-echo " -----  lscpu  -----"
-lscpu
-
 echo " -----  Start -----"
 
 if [ "$COVERAGE" == "true" ]; then
