@@ -37,10 +37,6 @@ chmod -R +x /var/www/html/tests/setup
 
 echo " -----  composer -V  -----"
 composer -V
-echo " -----  cccccccc  -----"
-echo "$(dirname "$0")/../../"
-ls -all "$(dirname "$0")/../../"
-
 
 
 echo " -----  tests/setup/dependency.sh  -----"
