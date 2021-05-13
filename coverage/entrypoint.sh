@@ -41,6 +41,8 @@ php -i | grep memory_limit
 echo " -----  composer -V  -----"
 composer -V
 
+echo " -----  free -m  -----"
+free -m 
 
 echo " -----  tests/setup/dependency.sh  -----"
 /var/www/html/tests/setup/dependency.sh
