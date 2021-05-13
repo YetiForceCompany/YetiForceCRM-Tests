@@ -1,5 +1,5 @@
 #! /bin/bash
-#set -e
+set -e
 echo " -----  free -m  -----"
 free -m 
 echo " -----  Start -----"
