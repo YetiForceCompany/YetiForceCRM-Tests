@@ -32,7 +32,6 @@ RUN apt-get install -y --no-install-recommends nginx nginx-extras "php${PHP_VER}
 RUN apt-get install -y --no-install-recommends nodejs npm yarn "php${PHP_VER}"-pcov
 RUN apt-get -y autoclean
 
-RUN yarn -v
 RUN yarn --version
 
 # RUN apt-cache search php
@@ -44,6 +43,8 @@ RUN echo "PROVIDER=tests" > /etc/environment
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer
+
+RUN composer --version
 
 COPY entrypoint.sh /entrypoint.sh
 COPY cover.ini /etc/php/cover.ini

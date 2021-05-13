@@ -4,6 +4,11 @@ echo " -----  free -m  -----"
 free -m 
 echo " -----  Start -----"
 
+echo " -----   yarn --version  -----"
+yarn --version
+echo " -----  composer --version  -----"
+composer --version
+
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  install pcov -----"
 	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce-cover.ini
@@ -37,12 +42,6 @@ chmod -R +x /var/www/html/tests/setup
 
 echo " -----  memory_limit  -----"
 php -i | grep memory_limit
-
-echo " -----  composer -V  -----"
-composer -V
-
-echo " -----  free -m  -----"
-free -m 
 
 echo " -----  tests/setup/dependency.sh  -----"
 /var/www/html/tests/setup/dependency.sh
