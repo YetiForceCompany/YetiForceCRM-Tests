@@ -30,7 +30,7 @@ RUN apt-get -y autoclean
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get install -y --no-install-recommends nodejs npm yarn && apt-get -y autoclean
+RUN apt-get install -y --no-install-recommends nodejs npm yarn "php${PHP_VER}"-pcov  && apt-get -y autoclean
 
 # RUN apt-cache search php
 RUN dpkg --get-selections | grep php

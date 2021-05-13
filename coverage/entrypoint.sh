@@ -6,7 +6,6 @@ echo " -----  Start -----"
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  install pcov -----"
-	apt-get install -y --no-install-recommends "php${PHP_VER}"-pcov 
 	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce-cover.ini
 	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce-cover.ini
 fi
@@ -15,7 +14,7 @@ fi
 
 cd /var/www/html/
 
-echo " -----  Copy files  -----" 
+echo " -----  Copy files  -----"
 cp -R $GITHUB_WORKSPACE/* /var/www/html
 cp -R $GITHUB_WORKSPACE/.scrutinizer.yml /var/www/html/.scrutinizer.yml
 
