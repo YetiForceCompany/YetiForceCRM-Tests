@@ -35,6 +35,9 @@ ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.
 echo " -----  chmod  -----"
 chmod -R +x /var/www/html/tests/setup
 
+echo " -----  memory_limit  -----"
+php -i | grep memory_limit
+
 echo " -----  composer -V  -----"
 composer -V
 
