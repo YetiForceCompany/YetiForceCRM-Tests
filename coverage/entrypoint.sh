@@ -35,6 +35,14 @@ ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.
 echo " -----  chmod  -----"
 chmod -R +x /var/www/html/tests/setup
 
+echo " -----  composer -V  -----"
+composer -V
+echo " -----  cccccccc  -----"
+echo "$(dirname "$0")/../../"
+ls -all "$(dirname "$0")/../../"
+
+
+
 echo " -----  tests/setup/dependency.sh  -----"
 /var/www/html/tests/setup/dependency.sh
 
