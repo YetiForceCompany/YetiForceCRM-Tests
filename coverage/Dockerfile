@@ -32,10 +32,8 @@ RUN apt-get install -y --no-install-recommends nginx nginx-extras "php${PHP_VER}
 RUN apt-get install -y --no-install-recommends nodejs npm yarn "php${PHP_VER}"-pcov
 RUN apt-get -y autoclean
 
-RUN yarn --version
-
 # RUN apt-cache search php
-RUN dpkg --get-selections | grep php
+# RUN dpkg --get-selections | grep php
 
 RUN rm /var/www/html/index.nginx-debian.html
 RUN echo "PROVIDER=tests" > /etc/environment
