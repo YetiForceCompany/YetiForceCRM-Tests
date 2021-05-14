@@ -3,13 +3,9 @@
 echo " -----  free -m  -----"
 free -m 
 echo " -----  Start -----"
-
 php -v
-
-echo " -----   yarn --version  -----"
-yarn --version
-echo " -----  composer --version  -----"
-composer --version
+echo " -----  php -i | grep error -----"
+php -i | grep error
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  copy 40-yetiforce-cover.ini -----"
