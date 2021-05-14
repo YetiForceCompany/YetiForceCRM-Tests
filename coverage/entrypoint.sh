@@ -4,13 +4,15 @@ echo " -----  free -m  -----"
 free -m 
 echo " -----  Start -----"
 
+php -v
+
 echo " -----   yarn --version  -----"
 yarn --version
 echo " -----  composer --version  -----"
 composer --version
 
 if [ "$COVERAGE" == "true" ]; then
-	echo " -----  install pcov -----"
+	echo " -----  copy 40-yetiforce-cover.ini -----"
 	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/cli/conf.d/40-yetiforce-cover.ini
 	ln -s /etc/php/cover.ini /etc/php/$PHP_VER/fpm/conf.d/40-yetiforce-cover.ini
 fi
