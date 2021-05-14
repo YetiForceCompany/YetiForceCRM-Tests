@@ -36,12 +36,17 @@ fi
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/cli/conf.d/30-yetiforce.ini
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.d/30-yetiforce.ini
 
-
 echo " -----  chmod  -----"
 chmod -R +x /var/www/html/tests/setup
 
 echo " -----  memory_limit  -----"
 php -i | grep memory_limit
+
+echo " -----  ls -all  /var/www/html/public_html/  -----"
+ls -all  /var/www/html/public_html/
+
+echo " -----  cat /var/www/html/public_html/index.php  -----"
+cat /var/www/html/public_html/index.php
 
 echo " -----  tests/setup/dependency.sh  -----"
 /var/www/html/tests/setup/dependency.sh
@@ -62,10 +67,11 @@ service cron start
 echo " -----  nginx  -----"
 service nginx start
 service nginx status
+service nginx reload
 echo " -----  PHP-FPM  -----"
 /etc/init.d/php$PHP_VER-fpm start
 service php$PHP_VER-fpm status
-
+service php$PHP_VER-fpm reload 
 echo " -----  chown  -----"
 chown -R www-data:www-data /var/www/
 
