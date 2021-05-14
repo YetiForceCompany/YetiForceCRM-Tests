@@ -39,15 +39,6 @@ ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.
 echo " -----  chmod  -----"
 chmod -R +x /var/www/html/tests/setup
 
-echo " -----  memory_limit  -----"
-php -i | grep memory_limit
-
-echo " -----  ls -all  /var/www/html/public_html/  -----"
-ls -all  /var/www/html/public_html/
-
-echo " -----  cat /var/www/html/public_html/index.php  -----"
-cat /var/www/html/public_html/index.php
-
 echo " -----  tests/setup/dependency.sh  -----"
 /var/www/html/tests/setup/dependency.sh
 
@@ -114,8 +105,6 @@ if [ "$COVERAGE" == "true" ]; then
 	echo " ----- bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage4.xml  -----"
 	bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r /var/www/html/tests/coverages/coverage4.xml
 fi
-
-
 
 echo " ----- LS  /var/www/html/cache/logs  -----"
 ls -all  /var/www/html/cache/logs
