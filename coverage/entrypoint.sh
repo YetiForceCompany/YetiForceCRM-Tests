@@ -3,9 +3,6 @@
 echo " -----  free -m  -----"
 free -m 
 echo " -----  Start -----"
-php -v
-echo " -----  php -i | grep error -----"
-php -i | grep error
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  copy 40-yetiforce-cover.ini -----"
@@ -61,6 +58,8 @@ echo " -----  PHP-FPM  -----"
 /etc/init.d/php$PHP_VER-fpm start
 service php$PHP_VER-fpm status
 service php$PHP_VER-fpm reload 
+php -v
+php -i | grep error
 echo " -----  chown  -----"
 chown -R www-data:www-data /var/www/
 
