@@ -78,9 +78,23 @@ echo "FLUSH PRIVILEGES;" | mysql --user=root
 chmod -R +r /var/log/
 cd /var/www/html/tests
 
-echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --testsuite All    -----"
-/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite All
+echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Init    -----"
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution1.xml' --testsuite Init
 
+echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Base    -----"
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution2.xml' --testsuite Base
+
+echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Integrations    -----"
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution3.xml' --testsuite Integrations
+
+echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Settings    -----"
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution4.xml' --testsuite Settings
+
+echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Apps    -----"
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution5.xml' --testsuite Apps
+
+echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Gui    -----"
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution6.xml' --testsuite Gui
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
