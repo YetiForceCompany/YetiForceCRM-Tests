@@ -95,6 +95,8 @@ echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-ju
 echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite App    -----"
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution5.xml' --testsuite App
 
+export SHOW_LOGS = 1
+
 echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Gui    -----"
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution6.xml' --testsuite Gui
 
