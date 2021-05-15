@@ -81,6 +81,8 @@ cd /var/www/html/tests
 echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Init    -----"
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution1.xml' --testsuite Init
 
+export YETI_INSTALLED=1
+
 echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Base    -----"
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution2.xml' --testsuite Base
 
@@ -90,8 +92,8 @@ echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-ju
 echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Settings    -----"
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution4.xml' --testsuite Settings
 
-echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Apps    -----"
-/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution5.xml' --testsuite Apps
+echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite App    -----"
+/var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution5.xml' --testsuite App
 
 echo " ----- /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution.xml' --testsuite Gui    -----"
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution6.xml' --testsuite Gui
