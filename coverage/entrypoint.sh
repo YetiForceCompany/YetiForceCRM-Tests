@@ -31,9 +31,6 @@ fi
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/cli/conf.d/30-yetiforce.ini
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.d/30-yetiforce.ini
 
-echo " -----  cat /etc/php/$PHP_VER/fpm/php-fpm.conf  -----"
-cat /etc/php/$PHP_VER/fpm/php-fpm.conf 
-
 echo " -----  chmod  -----"
 chmod -R +x /var/www/html/tests/setup
 
@@ -43,6 +40,9 @@ echo " -----  tests/setup/dependency.sh  -----"
 echo " -----  tests/setup/docker_post_install.php  -----"
 php /var/www/html/tests/setup/docker_post_install.php
 rm /var/www/html/tests/setup/docker_post_install.php
+
+echo " -----  cat /etc/php/$PHP_VER/fpm/php-fpm.conf  -----"
+cat /etc/php/$PHP_VER/fpm/php-fpm.conf 
 
 echo " -----  /var/www/html/tests/setup/selenium.sh -----"
 chmod 777 /var/www/html/tests/setup/selenium.sh
