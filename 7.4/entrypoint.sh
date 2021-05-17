@@ -61,6 +61,10 @@ echo " ----- cat /var/log/nginx/localhost_error.log  -----"
 cat /var/log/nginx/localhost_error.log
 echo " ----- cat /var/log/nginx/error.log  -----"
 cat /var/log/nginx/error.log
+echo " ----- cat /var/log/faillog  -----"
+cat /var/log/faillog
+echo " ----- cat /var/log/lastlog  -----"
+cat /var/log/lastlog
 
 exit 0
 
