@@ -34,13 +34,6 @@ ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.
 echo " -----  cat /etc/php/$PHP_VER/fpm/php-fpm.conf  -----"
 cat /etc/php/$PHP_VER/fpm/php-fpm.conf 
 
-echo " -----  /etc/php/$PHP_VER/fpm/php-fpm.conf  -----"
-echo "error_log = /var/log/fpm-php.www.log" >> /etc/php/$PHP_VER/fpm/php-fpm.conf
-echo "log_level = warning" >> /etc/php/$PHP_VER/fpm/php-fpm.conf
-
-echo " -----  cat /etc/php/$PHP_VER/fpm/php-fpm.conf  -----"
-cat /etc/php/$PHP_VER/fpm/php-fpm.conf 
-
 echo " -----  chmod  -----"
 chmod -R +x /var/www/html/tests/setup
 
