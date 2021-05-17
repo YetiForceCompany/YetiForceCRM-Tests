@@ -127,16 +127,16 @@ echo " ----- LS /var/log/  -----"
 ls -all /var/log/
 echo " ----- LS /var/log/nginx  -----"
 ls -all /var/log/nginx
-echo " ----- LS /var/log/mysql  -----"
-ls -all /var/log/mysql
+#echo " ----- LS /var/log/mysql  -----"
+#ls -all /var/log/mysql
 
-echo " ----- cat /var/log/fpm-php.www.log  -----"
-cat /var/log/fpm-php.www.log
-echo " ----- cat /var/log/php_error.log  -----"
-cat /var/log/php_error.log
-echo " ----- cat /var/log/nginx/localhost_access.log  -----"
-cat /var/log/nginx/localhost_access.log
-echo " ----- cat /var/log/nginx/localhost_error.log  -----"
-cat /var/log/nginx/localhost_error.log
-echo " ----- cat /var/log/nginx/error.log  -----"
-cat /var/log/nginx/error.log
+#echo " ----- cat /var/log/fpm-php.www.log  -----"
+#cat /var/log/fpm-php.www.log
+#echo " ----- cat /var/log/php_error.log  -----"
+#cat /var/log/php_error.log
+#echo " ----- cat /var/log/nginx/localhost_access.log  -----"
+# cat /var/log/nginx/localhost_access.log
+#echo " ----- cat /var/log/nginx/localhost_error.log  -----"
+#cat /var/log/nginx/localhost_error.log
+#echo " ----- cat /var/log/nginx/error.log  -----"
+#cat /var/log/nginx/error.log
