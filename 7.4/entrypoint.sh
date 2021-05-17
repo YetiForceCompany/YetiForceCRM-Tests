@@ -34,39 +34,17 @@ php /var/www/html/tests/setup/docker_post_install.php
 echo " -----  service mysql start  -----"
 service mysql start;
 service mysql status
+
 echo " -----  service cron start  -----"
 service cron start
+
 echo " -----  nginx  -----"
 service nginx start
 service nginx status
+
 echo " -----  PHP-FPM  -----"
 /etc/init.d/php$PHP_VER-fpm start
 service php$PHP_VER-fpm status
-
-echo " ----- LS  /var/www/html/cache/logs  -----"
-ls -all  /var/www/html/cache/logs
-echo " ----- LS /var/log/  -----"
-ls -all /var/log/
-echo " ----- LS /var/log/nginx  -----"
-ls -all /var/log/nginx
-
-
-echo " ----- cat /var/log/fpm-php.www.log  -----"
-cat /var/log/fpm-php.www.log
-echo " ----- cat /var/log/php_error.log  -----"
-cat /var/log/php_error.log
-echo " ----- cat /var/log/nginx/localhost_access.log  -----"
- cat /var/log/nginx/localhost_access.log
-echo " ----- cat /var/log/nginx/localhost_error.log  -----"
-cat /var/log/nginx/localhost_error.log
-echo " ----- cat /var/log/nginx/error.log  -----"
-cat /var/log/nginx/error.log
-echo " ----- cat /var/log/faillog  -----"
-cat /var/log/faillog
-echo " ----- cat /var/log/lastlog  -----"
-cat /var/log/lastlog
-
-exit 0
 
 echo " -----  chown  -----"
 chown -R www-data:www-data /var/www/
