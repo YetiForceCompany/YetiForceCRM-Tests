@@ -58,6 +58,7 @@ echo " -----  PHP-FPM  -----"
 /etc/init.d/php$PHP_VER-fpm start
 service php$PHP_VER-fpm status
 service php$PHP_VER-fpm reload 
+systemctl status php$PHP_VER-fpm.service
 php -v
 php -i | grep error
 echo " -----  chown  -----"
