@@ -105,7 +105,6 @@ if [ "$COVERAGE" == "true" ]; then
 	php /var/www/html/tests/setup/codeCoverageReport.php
 
 	echo " ----- /var/www/html/tests/coverages/  -----"
-	ls -all /var/www/html/tests/coverages/
 	mkdir $GITHUB_WORKSPACE/tests/coverages/
 	
 	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
