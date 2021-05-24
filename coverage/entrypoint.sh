@@ -2,6 +2,8 @@
 set -e
 echo " -----  free -m  -----"
 free -m 
+echo " -----  lscpu  -----"
+lscpu
 echo " -----  Start -----"
 
 if [ "$COVERAGE" == "true" ]; then
