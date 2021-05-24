@@ -41,6 +41,10 @@ echo " -----  tests/setup/docker_post_install.php  -----"
 php /var/www/html/tests/setup/docker_post_install.php
 rm /var/www/html/tests/setup/docker_post_install.php
 
+echo " -----  cat /etc/php/$PHP_VER/fpm/php-fpm.conf  -----"
+cat /etc/php/$PHP_VER/fpm/php-fpm.conf 
+
+
 echo " -----  /var/www/html/tests/setup/selenium.sh -----"
 chmod 777 /var/www/html/tests/setup/selenium.sh
 /var/www/html/tests/setup/selenium.sh
