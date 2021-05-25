@@ -106,6 +106,20 @@ export SHOW_LOGS=1
 echo " ----- phpunit --testsuite Gui    -----"
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution6.xml' --testsuite Gui
 
+echo " ----- Tests CLI    -----"
+php /var/www/html/cli.php -m System -a history
+php /var/www/html/cli.php -m System -a reloadModule
+php /var/www/html/cli.php -m System -a showProducts
+php /var/www/html/cli.php -m System -a reloadUserPrivileges
+
+php /var/www/html/cli.php -m Environment -a confReportErrors
+php /var/www/html/cli.php -m Environment -a confReportAll
+
+php /var/www/html/cli.php -m Cleaner -a session
+php /var/www/html/cli.php -m Cleaner -a cacheData
+
+php /var/www/html/cli.php -m Users -a resetAllPasswords
+
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
 	php /var/www/html/tests/setup/codeCoverageReport.php
