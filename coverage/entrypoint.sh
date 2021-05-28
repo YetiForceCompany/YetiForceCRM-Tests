@@ -118,7 +118,8 @@ php /var/www/html/cli.php -m Environment -a confReportAll
 php /var/www/html/cli.php -m Cleaner -a session
 php /var/www/html/cli.php -m Cleaner -a cacheData
 
-php /var/www/html/cli.php -m Users -a resetAllPasswords
+php /var/www/html/cli.php -m Users -a resetAllPasswords -l demo -p Tests9876 -c
+php /var/www/html/cli.php -m Users -a resetAllPasswords -c
 
 if [ "$COVERAGE" == "true" ]; then
 	echo " -----  after test -----"
