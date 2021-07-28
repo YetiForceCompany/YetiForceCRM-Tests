@@ -27,7 +27,7 @@ RUN percona-release setup ps80
 
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends percona-server-server percona-server-client
-RUN apt-get install -y --no-install-recommends nginx nginx-extras "php${PHP_VER}"-fpm "php${PHP_VER}"-mysql "php${PHP_VER}"-curl "php${PHP_VER}"-intl "php${PHP_VER}"-gd "php${PHP_VER}"-fpm "php${PHP_VER}"-bcmath "php${PHP_VER}"-soap "php${PHP_VER}"-ldap "php${PHP_VER}"-imap "php${PHP_VER}"-xml "php${PHP_VER}"-cli "php${PHP_VER}"-zip "php${PHP_VER}"-json "php${PHP_VER}"-opcache "php${PHP_VER}"-mbstring php-apcu php-imagick php-sodium zip unzip cron
+RUN apt-get install -y --no-install-recommends nginx nginx-extras "php${PHP_VER}"-fpm "php${PHP_VER}"-mysql "php${PHP_VER}"-curl "php${PHP_VER}"-intl "php${PHP_VER}"-gd "php${PHP_VER}"-fpm "php${PHP_VER}"-bcmath "php${PHP_VER}"-soap "php${PHP_VER}"-ldap "php${PHP_VER}"-imap "php${PHP_VER}"-xml "php${PHP_VER}"-cli "php${PHP_VER}"-zip "php${PHP_VER}"-json "php${PHP_VER}"-opcache "php${PHP_VER}"-mbstring "php${PHP_VER}"-imagick "php${PHP_VER}"-apcu zip unzip cron
 RUN apt-get -y autoclean
 
 # RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
