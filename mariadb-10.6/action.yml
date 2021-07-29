@@ -1,0 +1,9 @@
+name: 'YetiForceCRM Tests Action - MariaDB 10.6'
+description: 'GitHub Action for Tests YetiForceCRM  - MariaDB 10.6'
+branding:
+  icon: 'check-square'
+  color: 'blue'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
