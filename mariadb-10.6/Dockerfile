@@ -23,8 +23,11 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 RUN apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
 RUN echo "deb [arch=amd64,arm64,ppc64el] https://ftp.osuosl.org/pub/mariadb/repo/10.6/debian $(lsb_release -sc) main" > /etc/apt/sources.list.d/mariadb.list
+RUN cat /etc/apt/sources.list.d/mariadb.list
 
 RUN apt-get update
+RUN apt-cache search mariadb-server
+RUN apt-cache search mariadb-client
 RUN apt-get install install -y --no-install-recommends mariadb-server mariadb-client
 RUN apt-get install -y --no-install-recommends nginx nginx-extras "php${PHP_VER}"-fpm "php${PHP_VER}"-mysql "php${PHP_VER}"-curl "php${PHP_VER}"-intl "php${PHP_VER}"-gd "php${PHP_VER}"-fpm "php${PHP_VER}"-bcmath "php${PHP_VER}"-soap "php${PHP_VER}"-ldap "php${PHP_VER}"-imap "php${PHP_VER}"-xml "php${PHP_VER}"-cli "php${PHP_VER}"-zip "php${PHP_VER}"-json "php${PHP_VER}"-opcache "php${PHP_VER}"-mbstring "php${PHP_VER}"-imagick "php${PHP_VER}"-apcu zip unzip cron
 RUN apt-get -y autoclean
