@@ -1,0 +1,9 @@
+name: 'YetiForceCRM Tests Action - MySQL Latest'
+description: 'GitHub Action for Tests YetiForceCRM  - MySQL Latest'
+branding:
+  icon: 'check-square'
+  color: 'blue'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
