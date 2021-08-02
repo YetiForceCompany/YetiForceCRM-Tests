@@ -32,6 +32,8 @@ echo " -----  tests/setup/dependency.sh  -----"
 echo " -----  tests/setup/docker_post_install.php  -----"
 php /var/www/html/tests/setup/docker_post_install.php
 
+echo " -----  service --status-all  -----"
+service --status-all
 echo " -----  service mysql start  -----"
 service mysql start;
 service mysql status
