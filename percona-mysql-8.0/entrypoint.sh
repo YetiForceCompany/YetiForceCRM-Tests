@@ -34,7 +34,7 @@ php /var/www/html/tests/setup/docker_post_install.php
 
 echo " -----  service mysql start  -----"
 service mysql start;
-service mysql status
+systemctl stop mysql
 echo " -----  service cron start  -----"
 service cron start
 echo " -----  nginx  -----"
