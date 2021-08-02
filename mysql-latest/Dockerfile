@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils curl 
 
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
-RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb
+RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.18-1_all.deb
 RUN dpkg -i mysql-apt-config*
 
 RUN apt-get update
