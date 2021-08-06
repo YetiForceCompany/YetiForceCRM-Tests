@@ -34,6 +34,8 @@ php /var/www/html/tests/setup/docker_post_install.php
 
 echo " -----  service --status-all  -----"
 service --status-all
+echo " -----  systemctl --type=service  -----"
+systemctl --type=service
 echo " -----  service mysql start  -----"
 service mysql start;
 service mysql status
