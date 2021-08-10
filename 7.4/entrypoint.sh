@@ -1,5 +1,5 @@
 #! /bin/bash
-set -e
+#set -e
 echo " -----  Start -----"
 
 #https://github.com/actions/cache/blob/main/examples.md#php---composer
@@ -42,6 +42,10 @@ echo " -----  nginx  -----"
 service nginx start
 service nginx status
 
+journalctl -xe
+systemctl status nginx.service
+
+exit;
 echo " -----  PHP-FPM  -----"
 /etc/init.d/php$PHP_VER-fpm start
 service php$PHP_VER-fpm status
