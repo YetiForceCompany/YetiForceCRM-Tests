@@ -42,8 +42,8 @@ echo " -----  nginx  -----"
 service nginx start
 service nginx status
 
-journalctl -xe
-systemctl status nginx.service
+cat /var/log/nginx/error.log
+nginx -t
 
 exit;
 echo " -----  PHP-FPM  -----"
