@@ -42,10 +42,6 @@ echo " -----  nginx  -----"
 service nginx start
 service nginx status
 
-cat /var/log/nginx/error.log
-nginx -t
-
-exit;
 echo " -----  PHP-FPM  -----"
 /etc/init.d/php$PHP_VER-fpm start
 service php$PHP_VER-fpm status
