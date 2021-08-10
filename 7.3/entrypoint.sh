@@ -12,7 +12,7 @@ cp -R $GITHUB_WORKSPACE/* /var/www/html
 cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 cp /var/www/html/tests/setup/nginx/docker.conf /etc/nginx/sites-available/default
 cp /var/www/html/tests/setup/nginx/yetiforce.conf /etc/nginx/yetiforce.conf
-cp /var/www/html/tests/setup/fpm/www.conf /etc/php/$PHP_VER/fpm/pool.d/www.conf
+cp /var/www/html/tests/setup/fpm/docker.conf /etc/php/$PHP_VER/fpm/pool.d/www.conf
 if [ "$INSTALL_MODE" != "PROD" ]; then
     cp /var/www/html/tests/setup/php/dev.ini /etc/php/$PHP_VER/mods-available/yetiforce.ini
 else
