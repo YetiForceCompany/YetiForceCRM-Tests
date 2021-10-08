@@ -36,6 +36,11 @@ ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.
 echo " -----  chmod  -----"
 chmod -R +x /var/www/html/tests/setup
 
+echo " -----  PHP-FPM  -----"
+/etc/init.d/php$PHP_VER-fpm start
+service php$PHP_VER-fpm status
+service php$PHP_VER-fpm reload
+
 echo " -----  tests/setup/dependency.sh  -----"
 /var/www/html/tests/setup/dependency.sh
 
@@ -60,10 +65,7 @@ echo " -----  nginx  -----"
 service nginx start
 service nginx status
 service nginx reload
-echo " -----  PHP-FPM  -----"
-/etc/init.d/php$PHP_VER-fpm start
-service php$PHP_VER-fpm status
-service php$PHP_VER-fpm reload
+
 php -v
 php -i | grep error
 echo " -----  chown  -----"
