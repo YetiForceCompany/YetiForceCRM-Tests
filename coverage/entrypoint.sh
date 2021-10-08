@@ -21,7 +21,7 @@ cp -R $GITHUB_WORKSPACE/* /var/www/html
 cp -R $GITHUB_WORKSPACE/.scrutinizer.yml /var/www/html/.scrutinizer.yml
 
 cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
-cp /var/www/html/tests/setup/nginx/docker.conf /etc/nginx/sites-available/default
+cp /var/www/html/tests/setup/nginx/tests.conf /etc/nginx/sites-available/default
 cp /var/www/html/tests/setup/nginx/yetiforce.conf /etc/nginx/yetiforce.conf
 cp /var/www/html/tests/setup/fpm/tests.conf /etc/php/$PHP_VER/fpm/pool.d/www.conf
 if [ "$INSTALL_MODE" != "PROD" ]; then
