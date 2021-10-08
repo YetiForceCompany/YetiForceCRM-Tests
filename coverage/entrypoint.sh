@@ -1,7 +1,7 @@
 #! /bin/bash
 set -e
 echo " -----  free -m  -----"
-free -m 
+free -m
 echo " -----  lscpu  -----"
 lscpu
 echo " -----  Start -----"
@@ -23,7 +23,7 @@ cp -R $GITHUB_WORKSPACE/.scrutinizer.yml /var/www/html/.scrutinizer.yml
 cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 cp /var/www/html/tests/setup/nginx/docker.conf /etc/nginx/sites-available/default
 cp /var/www/html/tests/setup/nginx/yetiforce.conf /etc/nginx/yetiforce.conf
-cp /var/www/html/tests/setup/fpm/docker.conf /etc/php/$PHP_VER/fpm/pool.d/www.conf
+cp /var/www/html/tests/setup/fpm/tests.conf /etc/php/$PHP_VER/fpm/pool.d/www.conf
 if [ "$INSTALL_MODE" != "PROD" ]; then
     cp /var/www/html/tests/setup/php/dev.ini /etc/php/$PHP_VER/mods-available/yetiforce.ini
 else
@@ -44,7 +44,7 @@ php /var/www/html/tests/setup/docker_post_install.php
 rm /var/www/html/tests/setup/docker_post_install.php
 
 #echo " -----  cat /etc/php/$PHP_VER/fpm/php-fpm.conf  -----"
-#cat /etc/php/$PHP_VER/fpm/php-fpm.conf 
+#cat /etc/php/$PHP_VER/fpm/php-fpm.conf
 
 
 echo " -----  /var/www/html/tests/setup/selenium.sh -----"
@@ -63,7 +63,7 @@ service nginx reload
 echo " -----  PHP-FPM  -----"
 /etc/init.d/php$PHP_VER-fpm start
 service php$PHP_VER-fpm status
-service php$PHP_VER-fpm reload 
+service php$PHP_VER-fpm reload
 php -v
 php -i | grep error
 echo " -----  chown  -----"
@@ -127,7 +127,7 @@ if [ "$COVERAGE" == "true" ]; then
 
 	echo " ----- /var/www/html/tests/coverages/  -----"
 	mkdir $GITHUB_WORKSPACE/tests/coverages/
-	
+
 	echo " ----- cp -R /var/www/html/tests/coverages/* $GITHUB_WORKSPACE/tests/coverages/  -----"
 	cp -R /var/www/html/* $GITHUB_WORKSPACE
 
