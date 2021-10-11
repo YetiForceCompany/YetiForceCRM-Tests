@@ -46,8 +46,8 @@ rm /var/www/html/tests/setup/docker_post_install.php
 
 #echo " -----  cat /etc/php/$PHP_VER/fpm/php-fpm.conf  -----"
 #cat /etc/php/$PHP_VER/fpm/php-fpm.conf
-echo " -----  cat /etc/php/$PHP_VER/fpm/pool.d/www.conf  -----"
-cat /etc/php/$PHP_VER/fpm/pool.d/www.conf
+#echo " -----  cat /etc/php/$PHP_VER/fpm/pool.d/www.conf  -----"
+#cat /etc/php/$PHP_VER/fpm/pool.d/www.conf
 
 
 echo " -----  /var/www/html/tests/setup/selenium.sh -----"
