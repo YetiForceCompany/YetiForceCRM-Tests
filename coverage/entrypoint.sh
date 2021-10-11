@@ -43,8 +43,11 @@ echo " -----  tests/setup/docker_post_install.php  -----"
 php /var/www/html/tests/setup/docker_post_install.php
 rm /var/www/html/tests/setup/docker_post_install.php
 
-echo " -----  cat /etc/php/$PHP_VER/fpm/php-fpm.conf  -----"
-cat /etc/php/$PHP_VER/fpm/php-fpm.conf
+
+#echo " -----  cat /etc/php/$PHP_VER/fpm/php-fpm.conf  -----"
+#cat /etc/php/$PHP_VER/fpm/php-fpm.conf
+echo " -----  cat /etc/php/$PHP_VER/fpm/pool.d/www.conf  -----"
+cat /etc/php/$PHP_VER/fpm/pool.d/www.conf
 
 
 echo " -----  /var/www/html/tests/setup/selenium.sh -----"
@@ -54,26 +57,30 @@ chmod 777 /var/www/html/tests/setup/selenium.sh
 echo " -----  service mysql start  -----"
 service mysql start;
 service mysql status
+
 echo " -----  service cron start  -----"
 service cron start
+
+echo " -----  PHP-FPM  -----"
+service php$PHP_VER-fpm start
+#/etc/init.d/php$PHP_VER-fpm start
+service php$PHP_VER-fpm status
+service php$PHP_VER-fpm restart
+
+journalctl  -p 5 -xb -n50
+
+php -v
+
+echo " ==================== "
+exit
 echo " -----  nginx  -----"
 service nginx start
 service nginx status
 service nginx reload
-echo " -----  PHP-FPM  -----"
-/etc/init.d/php$PHP_VER-fpm start
-service php$PHP_VER-fpm status
-service php$PHP_VER-fpm reload
-
-journalctl  -p 3 -xb -n50
-
-php -v
-php -i | grep error
 
 echo " -----  chown  -----"
 chown -R www-data:www-data /var/www/
 
-exit
 
 echo " -----  mysql  -----"
 mysql -uroot mysql;
