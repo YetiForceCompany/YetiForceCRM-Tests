@@ -67,12 +67,8 @@ service php$PHP_VER-fpm start
 service php$PHP_VER-fpm status
 service php$PHP_VER-fpm restart
 
-journalctl  -p 5 -xb -n50
-
 php -v
 
-echo " ==================== "
-exit
 echo " -----  nginx  -----"
 service nginx start
 service nginx status
