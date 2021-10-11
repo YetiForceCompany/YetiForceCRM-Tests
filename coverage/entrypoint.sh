@@ -1,5 +1,5 @@
 #! /bin/bash
-set -e
+#set -e
 echo " -----  free -m  -----"
 free -m
 echo " -----  lscpu  -----"
@@ -64,10 +64,16 @@ echo " -----  PHP-FPM  -----"
 /etc/init.d/php$PHP_VER-fpm start
 service php$PHP_VER-fpm status
 service php$PHP_VER-fpm reload
+
+journalctl  -p 3 -xb -n50
+
 php -v
 php -i | grep error
+
 echo " -----  chown  -----"
 chown -R www-data:www-data /var/www/
+
+exit
 
 echo " -----  mysql  -----"
 mysql -uroot mysql;
