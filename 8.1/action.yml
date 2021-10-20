@@ -1,0 +1,10 @@
+name: 'YetiForceCRM Tests Action - PHP 8.1'
+description: 'GitHub Action for Tests YetiForceCRM  - PHP 8.1'
+branding:
+  icon: 'check-square'
+  color: 'blue'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  
