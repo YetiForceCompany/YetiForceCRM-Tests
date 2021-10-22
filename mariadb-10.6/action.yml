@@ -1,5 +1,5 @@
 name: 'YetiForceCRM Tests Action - MariaDB 10.6'
-description: 'GitHub Action for Tests YetiForceCRM  - MariaDB 10.6'
+description: 'Debian 11 | PHP 7.4 | MariaDB 10.6'
 branding:
   icon: 'check-square'
   color: 'blue'
