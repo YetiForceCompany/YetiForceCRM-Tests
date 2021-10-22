@@ -8,7 +8,7 @@ cd /var/www/html/
 
 echo " -----  Copy files  -----"
 cp -R $GITHUB_WORKSPACE/* /var/www/html
-
+ls -all /etc/mysql/
 cp /var/www/html/tests/setup/db/mysql.cnf /etc/mysql/mysql.conf.d/50-server.cnf
 #cp /var/www/html/tests/setup/db/mysql_mysql8.cnf /etc/mysql/conf.d/50-server.cnf
 cp /var/www/html/tests/setup/nginx/docker.conf /etc/nginx/sites-available/default
