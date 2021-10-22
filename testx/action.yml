@@ -1,0 +1,9 @@
+name: 'YetiForceCRM Tests Action - MySQL Latest'
+description: 'Debian 11 | PHP 7.4 | MariaDB 10.6'
+branding:
+  icon: 'check-square'
+  color: 'blue'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
