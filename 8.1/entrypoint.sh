@@ -25,6 +25,8 @@ ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.
 echo " -----  chmod  -----"
 chmod -R +x /var/www/html/tests/setup
 
+composer update
+
 echo " -----  tests/setup/dependency.sh  -----"
 /var/www/html/tests/setup/dependency.sh
 
