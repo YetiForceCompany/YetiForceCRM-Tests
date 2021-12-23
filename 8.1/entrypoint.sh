@@ -32,6 +32,7 @@ chmod -R +x /var/www/html/tests/setup
 
 echo " -----  tests/setup/dependency.sh  -----"
 rm -rf composer.lock
+rm -rf composer_dev.lock
 /var/www/html/tests/setup/dependency.sh
 
 echo " -----  tests/setup/docker_post_install.php  -----"
