@@ -38,9 +38,9 @@ rm -rf composer_dev.lock
 echo " -----  tests/setup/docker_post_install.php  -----"
 php /var/www/html/tests/setup/docker_post_install.php
 
-echo " -----  service mysql start  -----"
-service mysql start;
-service mysql status
+echo " -----  service mariadb start  -----"
+service mariadb start;
+service mariadb status
 echo " -----  service cron start  -----"
 service cron start
 echo " -----  nginx  -----"

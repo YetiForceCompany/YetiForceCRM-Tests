@@ -1,5 +1,5 @@
 name: 'YetiForceCRM Tests Action - PHP 8.1'
-description: 'GitHub Action for Tests YetiForceCRM  - PHP 8.1'
+description: 'Debian 11 | PHP 8.1 | MariaDB 10.5'
 branding:
   icon: 'check-square'
   color: 'blue'
