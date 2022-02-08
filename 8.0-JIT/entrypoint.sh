@@ -18,7 +18,7 @@ if [ "$INSTALL_MODE" != "PROD" ]; then
 else
     cp /var/www/html/tests/setup/php/prod.ini /etc/php/$PHP_VER/mods-available/yetiforce.ini
 fi
-echo "opcache.jit=tracing \n opcache.jit_buffer_size=150M \n" >> /etc/php/$PHP_VER/mods-available/yetiforce.ini
+echo "opcache.jit='tracing' \n opcache.jit_buffer_size=150M \n" >> /etc/php/$PHP_VER/mods-available/yetiforce.ini
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/cli/conf.d/30-yetiforce.ini
 ln -s /etc/php/$PHP_VER/mods-available/yetiforce.ini /etc/php/$PHP_VER/fpm/conf.d/30-yetiforce.ini
 
