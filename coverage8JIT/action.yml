@@ -1,0 +1,9 @@
+name: 'YetiForceCRM Tests Action - Codec coverage PHP8 JIT'
+description: 'GitHub Action for Tests YetiForceCRM  - Codec coverage PHP8 JIT'
+branding:
+  icon: 'check-square'
+  color: 'blue'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
