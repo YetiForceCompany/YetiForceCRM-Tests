@@ -21,8 +21,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils curl 
 
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
+RUN apt-get install software-properties-common dirmngr apt-transport-https
 RUN apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-RUN echo "deb [arch=amd64,arm64,ppc64el] http://ftp.hosteurope.de/mirror/mariadb.org/repo/10.6/debian $(lsb_release -sc) main" > /etc/apt/sources.list.d/mariadb.list
+RUN add-apt-repository "deb [arch=amd64,i386,arm64,ppc64el] https://ftp.icm.edu.pl/pub/unix/database/mariadb/repo/10.6/debian $(lsb_release -sc) main"
 
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends mariadb-server mariadb-client
