@@ -7,5 +7,5 @@ branding:
 runs:
   using: "composite"
   steps:
-    - run: checker.sh
+    - run: ./checker.sh
       shell: bash
