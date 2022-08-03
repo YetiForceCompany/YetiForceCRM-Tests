@@ -31,7 +31,7 @@ RUN apt-get -y autoclean
 # RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 # RUN apt-get install -y --no-install-recommends nodejs npm yarn && apt-get -y autoclean
 
-# RUN apt-cache search php
+RUN apt-cache search php
 RUN dpkg --get-selections | grep php
 
 RUN rm /var/www/html/index.nginx-debian.html
