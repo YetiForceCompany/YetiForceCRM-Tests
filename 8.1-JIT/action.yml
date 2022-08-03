@@ -1,0 +1,10 @@
+name: 'YetiForceCRM Tests Action - PHP 8.1 JIT'
+description: 'Debian 11 | PHP 8.1 JIT | MariaDB 10.5'
+branding:
+  icon: 'check-square'
+  color: 'blue'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  
