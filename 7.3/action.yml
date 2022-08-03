@@ -1,9 +1,0 @@
-name: 'YetiForceCRM Tests Action - PHP 7.3'
-description: 'GitHub Action for Tests YetiForceCRM  - PHP 7.3'
-branding:
-  icon: 'check-square'
-  color: 'blue'
-
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
