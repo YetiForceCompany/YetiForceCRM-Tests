@@ -7,3 +7,7 @@ branding:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ matrix.vdb }}
+    - ${{ env.dbxxxx }}
+    
