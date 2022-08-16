@@ -1,0 +1,9 @@
+name: 'YetiForceCRM Tests Action - MariaDB 10.9'
+description: 'Debian 11 | PHP 7.4 | MariaDB 10.9'
+branding:
+  icon: 'check-square'
+  color: 'blue'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
