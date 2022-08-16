@@ -4,8 +4,8 @@ echo " -----  printenv -----"
 
 printenv
 
-echo " -----  DB_VERSION -----"
-echo DB_VERSION
+echo " ----- 1  DATABASE_VERSION -----"
+echo DATABASE_VERSION
 
-echo " -----  ${DB_VERSION} -----"
-echo ${DB_VERSION}
+echo " ----- 2  ${DATABASE_VERSION} -----"
+echo ${DATABASE_VERSION}
