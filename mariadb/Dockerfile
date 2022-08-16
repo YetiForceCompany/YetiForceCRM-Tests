@@ -14,7 +14,7 @@ ENV DB_USER_PASS Q4WK2yRUpliyjMRivDJE
 ENV DB_PORT 3306
 ARG DB_ROOT_PASS=1r2VdePVnNxluabdGuqh
 
-RUN chmod 777 /xxxx.sh
+RUN chmod 777 xxxx.sh
 RUN xxxx.sh
 
 ENV PROVIDER tests
