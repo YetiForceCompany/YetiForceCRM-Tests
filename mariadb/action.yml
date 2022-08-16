@@ -7,6 +7,4 @@ branding:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - $DATABASE_VERSION
     
