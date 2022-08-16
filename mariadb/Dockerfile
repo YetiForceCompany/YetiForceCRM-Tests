@@ -14,6 +14,9 @@ ENV DB_USER_PASS Q4WK2yRUpliyjMRivDJE
 ENV DB_PORT 3306
 ARG DB_ROOT_PASS=1r2VdePVnNxluabdGuqh
 
+RUN printenv
+RUN echo DB_VERSION
+RUN echo ${DB_VERSION}
 
 ENV PROVIDER tests
 
@@ -21,11 +24,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils curl 
 
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
-
-
-RUN printenv
-RUN echo DB_VERSION
-RUN echo ${DB_VERSION}
 
 RUN apt-get update && apt-get -y install software-properties-common dirmngr apt-transport-https && apt-get update
 RUN apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
