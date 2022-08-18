@@ -22,8 +22,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils curl 
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 RUN apt-get update && apt-get -y install software-properties-common dirmngr apt-transport-https && apt-get update
-RUN apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-RUN add-apt-repository "deb [arch=amd64,i386,arm64,ppc64el] https://atl.mirrors.knownhost.com/mariadb/repo/10.6/debian $(lsb_release -sc) main"
+
+RUN sudo curl -o /etc/apt/trusted.gpg.d/mariadb_release_signing_key.asc 'https://mariadb.org/mariadb_release_signing_key.asc'
+RUN sudo sh -c "echo 'deb https://mirrors.gigenet.com/mariadb/repo/10.6/debian $(lsb_release -sc) main' >>/etc/apt/sources.list"
 
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends mariadb-server mariadb-client
