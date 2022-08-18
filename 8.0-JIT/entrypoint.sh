@@ -75,6 +75,3 @@ php /var/www/html/cli.php -m Cleaner -a cacheData
 
 php /var/www/html/cli.php -m Users -a resetAllPasswords -l demo -p Tests9876 -c
 php /var/www/html/cli.php -m Users -a resetAllPasswords -c
-
-php /var/www/html/cli.php -m Environment -a confReportErrors
-php /var/www/html/cli.php -m Environment -a confReportAll
