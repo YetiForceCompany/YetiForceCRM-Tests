@@ -50,7 +50,7 @@ rm /var/www/html/tests/setup/docker_post_install.php
 #cat /etc/php/$PHP_VER/fpm/pool.d/www.conf
 
 echo " -----  npm install -g n   -----"
-curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 apt-get install -y nodejs
 echo " -----  cypress install   -----"
 cd /var/www/html/tests/Gui
