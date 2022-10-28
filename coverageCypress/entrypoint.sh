@@ -49,6 +49,8 @@ rm /var/www/html/tests/setup/docker_post_install.php
 #echo " -----  cat /etc/php/$PHP_VER/fpm/pool.d/www.conf  -----"
 #cat /etc/php/$PHP_VER/fpm/pool.d/www.conf
 
+echo " -----  npm install -g n   -----"
+npm install -g n
 echo " -----  cypress install   -----"
 cd /var/www/html/tests/Gui
 yarn install
