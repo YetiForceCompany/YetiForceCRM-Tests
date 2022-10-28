@@ -114,7 +114,7 @@ echo " ----- phpunit App    -----"
 
 echo " ----- cypress run    -----"
 cd /var/www/html/tests/Gui
-cypress run
+./node_modules/.bin/cypress run
 cd /var/www/html/tests
 
 export SHOW_LOGS=1
