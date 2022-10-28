@@ -50,7 +50,7 @@ rm /var/www/html/tests/setup/docker_post_install.php
 #cat /etc/php/$PHP_VER/fpm/pool.d/www.conf
 
 echo " -----  npm install -g n   -----"
-npm install -g n
+curl https://www.npmjs.com/install.sh | sh
 echo " -----  cypress install   -----"
 cd /var/www/html/tests/Gui
 yarn install
