@@ -56,10 +56,9 @@ echo " -----  cypress install   -----"
 cd /var/www/html/tests/Gui
 yarn install
 
-echo " -----  service mysql start  -----"
-service mysql start;
-service mysql status
-
+echo " -----  service mariadb start  -----"
+service mariadb start;
+service mariadb status
 echo " -----  service cron start  -----"
 service cron start
 
