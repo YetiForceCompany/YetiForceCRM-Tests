@@ -113,6 +113,7 @@ echo " ----- phpunit App    -----"
 /var/www/html/vendor/bin/phpunit --verbose --colors=always --log-junit '/var/www/html/tests/coverages/execution5.xml' --testsuite App
 
 echo " ----- cypress run    -----"
+ELECTRON_EXTRA_LAUNCH_ARGS=--disable-gpu
 cd /var/www/html/tests/Gui
 ./node_modules/.bin/cypress run
 cd /var/www/html/tests
