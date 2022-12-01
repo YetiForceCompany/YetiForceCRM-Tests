@@ -55,6 +55,7 @@ apt-get install -y nodejs
 echo " -----  cypress install   -----"
 cd /var/www/html/tests/Gui
 yarn install
+npx browserslist@latest --update-db
 
 echo " -----  service mariadb start  -----"
 service mariadb start;
