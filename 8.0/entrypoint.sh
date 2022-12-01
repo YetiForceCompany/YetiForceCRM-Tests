@@ -30,6 +30,8 @@ echo " -----  tests/setup/dependency.sh  -----"
 
 echo " -----  tests/setup/docker_post_install.php  -----"
 php /var/www/html/tests/setup/docker_post_install.php
+rm /var/www/html/tests/setup/docker_post_install.php
+
 
 echo " -----  service mariadb start  -----"
 service mariadb start;

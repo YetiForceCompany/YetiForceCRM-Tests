@@ -62,6 +62,11 @@ service mariadb status
 echo " -----  service cron start  -----"
 service cron start
 
+echo " -----  nginx  -----"
+service nginx start
+service nginx status
+service nginx reload
+
 echo " -----  PHP-FPM  -----"
 service php$PHP_VER-fpm start
 #/etc/init.d/php$PHP_VER-fpm start
@@ -69,11 +74,6 @@ service php$PHP_VER-fpm status
 service php$PHP_VER-fpm restart
 
 php -v
-
-echo " -----  nginx  -----"
-service nginx start
-service nginx status
-service nginx reload
 
 echo " -----  chown  -----"
 chown -R www-data:www-data /var/www/
