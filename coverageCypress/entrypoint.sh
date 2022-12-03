@@ -54,6 +54,7 @@ curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 apt-get install -y nodejs
 echo " -----  cypress install   -----"
 cd /var/www/html/tests/Gui
+yarn upgrade
 yarn install
 npx browserslist@latest --update-db
 
